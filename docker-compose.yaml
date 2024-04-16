@@ -1,0 +1,21 @@
+version: '3.0'
+services:
+  backend:
+    build:
+      context: ./tic-tac-toe-backend
+      dockerfile: ./Dockerfile
+    container_name: tic-tac-toe-backend
+    ports:
+      - "8080:8080"
+
+  frontend:
+    depends_on:
+      - backend
+    build:
+      context: ./tic-tac-toe-frontend
+      dockerfile: ./Dockerfile
+    container_name: tic-tac-toe-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=${REACT_APP_API_URL}

@@ -1,0 +1,99 @@
+body {
+  background: #f0f0f0;
+  /* Jaśniejsze tło */
+  color: #faf9f9;
+  /* Ciemny kolor tekstu */
+  font-family: Arial, sans-serif;
+  /* Dodatkowa czcionka dla czytelności */
+}
+
+h1 {
+  text-align: center;
+  color: #faf9f9;
+  /* Kolor nagłówka */
+}
+
+.clearfix {
+  clear: both;
+}
+
+#box {
+  width: 350px;
+  overflow: auto;
+  margin: 40px auto;
+  background: #ddd;
+  /* Szare tło */
+  padding-bottom: 40px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  /* Cień */
+}
+
+#message {
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+}
+
+#gameBoard li {
+  float: left;
+  margin: 10px;
+  height: 70px;
+  width: 70px;
+  font-size: 50px;
+  background: #ccc;
+  /* Szare tło dla kafelków */
+  color: #faf9f9;
+  /* Ciemny kolor */
+  list-style: none;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  /* Cień */
+  transition: background 0.3s ease;
+  /* Efekt przejścia */
+}
+
+#gameBoard li:hover {
+  cursor: pointer;
+  background: #bbb;
+  /* Jaśniejsze tło po najechaniu */
+}
+
+#reset {
+  border: 0;
+  background: #444;
+  color: #fff;
+  width: 70%;
+  padding: 15px;
+  border-radius: 5px;
+  display: block;
+  margin: 20px auto;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  /* Efekt przejścia */
+}
+
+#reset:hover {
+  background: #666;
+  /* Jaśniejsze tło po najechaniu */
+}
+
+.o {
+  color: green !important;
+  /* Kolor kółka */
+}
+
+.x {
+  color: red !important;
+  /* Kolor krzyżyka */
+}
+
+footer {
+  display: block;
+  text-align: center;
+  padding-top: 20px;
+  color: #666;
+  /* Kolor stopki */
+}
