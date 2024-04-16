@@ -5,6 +5,7 @@ import axios from 'axios';
 
 // const url = 'http://localhost:8080';
 const url = process.env.REACT_APP_API_URL;
+console.log(`url = ${url}`)
 
 function App() {
 
@@ -28,7 +29,7 @@ function App() {
   const connectToSocket = (gameId) => {
     const client = new Client();
     client.configure({
-      brokerURL: 'ws://localhost:8080/gameplay',
+      brokerURL: 'ws://' + url + 'gameplay',
       reconnectDelay: 5000,
       onConnect: () => {
         console.log('Connected');
@@ -61,7 +62,7 @@ function App() {
       return;
     }
     try {
-      const response = await axios.post(url + "/game/start", { nickname: nickname });
+      const response = await axios.post("http://" + url + "/game/start", { nickname: nickname });
       setGameId(response.data.gameId);
       setPlayerType('X');
       setCurrentTurn('X');
@@ -83,7 +84,7 @@ function App() {
       return;
     }
     try {
-      const response = await axios.post(url + "/game/connect/random", { nickname });
+      const response = await axios.post("http://" + url + "/game/connect/random", { nickname });
       setGameId(response.data.gameId);
       setPlayerType('O');
       start();
@@ -103,7 +104,7 @@ function App() {
     if (!gameOn || currentTurn !== playerType) return;
 
     try {
-      const response = await axios.post(url + "/game/gameplay", {
+      const response = await axios.post("http://" + url + "/game/gameplay", {
         type: playerType,
         coordinateX: xCoordinate,
         coordinateY: yCoordinate,
