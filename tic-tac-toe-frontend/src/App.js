@@ -29,7 +29,7 @@ function App() {
   const connectToSocket = (gameId) => {
     const client = new Client();
     client.configure({
-      brokerURL: 'ws://' + url + 'gameplay',
+      brokerURL: `ws://${url}/gameplay`,
       reconnectDelay: 5000,
       onConnect: () => {
         console.log('Connected');
@@ -62,7 +62,7 @@ function App() {
       return;
     }
     try {
-      const response = await axios.post("http://" + url + "/game/start", { nickname: nickname });
+      const response = await axios.post(`http://${url}/game/start`, { nickname: nickname });
       setGameId(response.data.gameId);
       setPlayerType('X');
       setCurrentTurn('X');
@@ -84,7 +84,7 @@ function App() {
       return;
     }
     try {
-      const response = await axios.post("http://" + url + "/game/connect/random", { nickname });
+      const response = await axios.post(`http://${url}/game/connect/random`, { nickname });
       setGameId(response.data.gameId);
       setPlayerType('O');
       start();
@@ -104,7 +104,7 @@ function App() {
     if (!gameOn || currentTurn !== playerType) return;
 
     try {
-      const response = await axios.post("http://" + url + "/game/gameplay", {
+      const response = await axios.post(`http://${url}/game/gameplay`, {
         type: playerType,
         coordinateX: xCoordinate,
         coordinateY: yCoordinate,
